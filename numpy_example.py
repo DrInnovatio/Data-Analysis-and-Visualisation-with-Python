@@ -52,3 +52,6 @@ left, right = np.split(array_d, [2], axis=1)
 
 print(left)
 print(right)
+
+
+# third test
