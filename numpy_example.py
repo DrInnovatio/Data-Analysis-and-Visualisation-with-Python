@@ -2,7 +2,6 @@ import numpy as np
 
 # list_data = [1, 2, 3, 4]
 # array = np.array(list_data)
-#
 # print(array.size)
 # print(array.dtype)
 # print(array[2])
@@ -52,3 +51,6 @@ left, right = np.split(array_d, [2], axis=1)
 
 print(left)
 print(right)
+
+
+# third test
