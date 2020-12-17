@@ -6,12 +6,12 @@ array = np.random.randint(1, 10, size=4).reshape(2, 2)
 result_array = array * 10
 print(result_array)
 
-""" The term broadcasting describes how numpy treats arrays with different shapes during arithmetic operations. 
-Subject to certain constraints, the smaller array is “broadcast” across the larger array so that they have compatible 
-shapes. Broadcasting provides a means of vectorizing array operations so that looping occurs in C instead of Python. 
-It does this without making needless copies of data and usually leads to   efficient algorithm implementations. There 
-are, however, cases where broadcasting is a bad idea because it leads to inefficient use of     memory that slows 
-computation. """
+# The term broadcasting describes how numpy treats arrays with different shapes during arithmetic operations.
+# Subject to certain constraints, the smaller array is “broadcast” across the larger array so that they have compatible
+# shapes. Broadcasting provides a means of vectorizing array operations so that looping occurs in C instead of Python.
+# It does this without making needless copies of data and usually leads to efficient algorithm implementations. There
+# are, however, cases where broadcasting is a bad idea because it leads to inefficient use of memory that slows
+# computation.
 
 array_1 = np.arange(4).reshape(2, 2)
 array_2 = np.arange(2)
