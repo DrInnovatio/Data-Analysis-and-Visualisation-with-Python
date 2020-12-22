@@ -1,7 +1,5 @@
 import cv2
 import matplotlib as plt
-import numpy as np
-
 
 image_1 = cv2.imread('hair.jpg')
 image_2 = cv2.imread('hair2.jpg')
