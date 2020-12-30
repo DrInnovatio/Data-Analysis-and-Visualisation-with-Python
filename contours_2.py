@@ -1,7 +1,7 @@
 import cv2
 import matplotlib.pyplot as plt
 
-image = cv2.imread('digit.png')
+image = cv2.imread('digits.png')
 image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 ret, thresh = cv2.threshold(image_gray, 230, 255, 0)
 thresh = cv2.bitwise_not(thresh)
