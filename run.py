@@ -35,4 +35,4 @@ def get_result(file_name):
         result_string += matched
     return result_string
 
-print(get_result("image_2.png"))
+print(get_result("2.png"))
