@@ -1,6 +1,9 @@
 import numpy as np
 import cv2
 import utils
+import requests
+import shutil
+import time
 
 FILE_NAME = "trained.npz"
 
@@ -36,3 +39,12 @@ def get_result(file_name):
     return result_string
 
 print(get_result("2.png"))
+
+host = "http://localhost:10000"
+url = '/start'
+
+with requests.Session() as s:
+    answer = ''
+    for i in range(0, 100):
+        start_time = time.time()
+        params = {'ans': answer}
