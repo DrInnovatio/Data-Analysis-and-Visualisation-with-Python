@@ -48,3 +48,13 @@ with requests.Session() as s:
     for i in range(0, 100):
         start_time = time.time()
         params = {'ans': answer}
+
+        response = s.post(host + url, params)
+        print('Server Return : ' +response.text)
+        if i == 0:
+            returned = response.text
+            image_url = host + returned
+            url = '/check'
+        else:
+            returned = response.json()
+            image_url = host + returned['url']
