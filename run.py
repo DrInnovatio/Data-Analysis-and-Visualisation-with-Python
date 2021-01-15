@@ -14,9 +14,11 @@ with np.load(FILE_NAME) as data:
 knn = cv2.ml.KNearest_create()
 knn.train(train, cv2.ml.ROW_SAMPLE, train_labels)
 
+
 def check(test, train, train_labels):
     ret, result, neighbours, dist = knn.findNearest(test, k=1)
     return result
+
 
 def get_result(file_name):
     image = cv2.imread(file_name)
@@ -38,6 +40,7 @@ def get_result(file_name):
         result_string += matched
     return result_string
 
+
 print(get_result("2.png"))
 
 host = "http://localhost:10000"
@@ -50,7 +53,7 @@ with requests.Session() as s:
         params = {'ans': answer}
 
         response = s.post(host + url, params)
-        print('Server Return : ' +response.text)
+        print('Server Return : ' + response.text)
         if i == 0:
             returned = response.text
             image_url = host + returned
@@ -58,3 +61,20 @@ with requests.Session() as s:
         else:
             returned = response.json()
             image_url = host + returned['url']
+
+print('Problem ' + str(i) + ' : ' + image_url)
+
+response = s.get(image_url, stream=True)
+target_image = './target_images/' + str(i) + '.png'
+with open(target_image, 'wb') as out_file:
+    shutil.copyfileobj(response.raw, out_file)
+del response
+
+answer_string = get_result(target_image)
+print('String : ' + answer_string)
+answer_string = utils.remove_first_0(answer_string)
+answer = str(eval(answer_string))
+print('Answer : ' + answer)
+print("--- %s seconds ---" % (time.time() - start_time))
+
+

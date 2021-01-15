@@ -43,9 +43,11 @@ def extract_chars(image):
     chars = sorted(chars, key=lambda char: char[0])
     return chars
 
+
 def resize20(image):
     resized = cv2.resize(image, (20, 20))
     return resized.reshape(-1, 400).astype(np.float32)
+
 
 def remove_first_0(string):
     temp = []
@@ -65,8 +67,7 @@ def remove_first_0(string):
             result += temp[temp_count]
             temp_count = temp_count + 1
         i = i + 1
-    return  result
+    return result
 
 # testing a commit.
 # testing the second commit.
-
