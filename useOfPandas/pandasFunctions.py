@@ -1,0 +1,50 @@
+import pandas as pd
+import numpy as np
+
+array = pd.Series(['Apple', 'Banana', 'Carrot'], index=['a', 'b', 'c'])
+print(array)
+print(array['a'])
+
+word_dict = {
+    'Apple': 'New York',
+    'Banana': 'Los Angeles',
+    'Carrot': 'Tokyo',
+    'Durian': 'Milano'
+}
+
+frequency_dict = {
+    'Apple': 3,
+    'Banana': 5,
+    'Carrot': np.nan,
+    'Durian': 2
+}
+
+importance_dict = {
+    'Apple': 3,
+    'Banana': 2,
+    'Carrot': 1,
+    'Durian': 1
+}
+
+word = pd.Series(word_dict)
+frequency = pd.Series(frequency_dict)
+importance = pd.Series(importance_dict)
+
+summary = pd.DataFrame({
+    'word': word,
+    'frequency': frequency,
+    'importance': importance
+})
+
+print(summary)
+print("==============================================")
+print(summary.notnull())
+print("=============================================")
+print(summary.isnull())
+print("=============================================")
+summary['frequency'] = summary['frequency'].fillna('No Data')
+print(summary)
+print("=======La Fine=================================")
+
+
+
