@@ -70,3 +70,9 @@ dict = {"country": ["Brazil", "Russia", "India", "China", "South Africa"],
 
 brics = pd.DataFrame(dict)
 print(brics)
+
+print("===================== 4 =======================")
+
+dfa = pd.DataFrame({"A": [1, 2, 3], "B": [4, 5, 6]})
+dfa.assign(C=lambda x: x["A"] + x["B"], D=lambda x: x["A"] + x["C"])
+print(dfa)
