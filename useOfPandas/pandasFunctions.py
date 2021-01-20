@@ -39,18 +39,40 @@ summary = pd.DataFrame({
 print(summary)
 print("==============================================")
 print(summary.notnull())
-print("=============================================")
+print("==============================================")
 print(summary.isnull())
-print("=============================================")
+print("==============================================")
 summary['frequency'] = summary['frequency'].fillna('No Data')
 print(summary)
-print("=======La Fine=================================")
+print("==============================================")
+
+array_1 = pd.Series([1, 2, 3], index=['A', 'B', 'C'])
+array_2 = pd.Series([4, 5, 6], index=['B', 'C', 'D'])
+array = array_1.add(array_2, fill_value=0)
+print(array)
+
+print("===================== 2 =======================")
+
+arr_1 = pd.DataFrame([[1, 2], [3, 4]], index=['A', 'B'])
+arr_2 = pd.DataFrame([[1, 2, 3], [4, 5, 6], [7, 8, 9]], index=['B', 'C', 'D'])
+
+arr = arr_1.add(arr_2, fill_value=0)
+print(arr)
+print("Sum of column 1 : ", arr[1].sum())
+print(arr.sum())
+
+print("===================== 3 =======================")
 
 dict = {"country": ["Brazil", "Russia", "India", "China", "South Africa"],
-       "capital": ["Brasilia", "Moscow", "New Dehli", "Beijing", "Pretoria"],
-       "area": [8.516, 17.10, 3.286, 9.597, 1.221],
-       "population": [200.4, 143.5, 1252, 1357, 52.98] }
+        "capital": ["Brasilia", "Moscow", "New Dehli", "Beijing", "Pretoria"],
+        "area": [8.516, 17.10, 3.286, 9.597, 1.221],
+        "population": [200.4, 143.5, 1252, 1357, 52.98]}
 
 brics = pd.DataFrame(dict)
 print(brics)
 
+print("===================== 4 =======================")
+
+dfa = pd.DataFrame({"A": [1, 2, 3], "B": [4, 5, 6]})
+dfa.assign(C=lambda x: x["A"] + x["B"], D=lambda x: x["A"] + x["C"])
+print(dfa)
