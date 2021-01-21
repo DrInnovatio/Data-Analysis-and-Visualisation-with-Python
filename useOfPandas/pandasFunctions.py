@@ -76,3 +76,13 @@ print("===================== 4 =======================")
 dfa = pd.DataFrame({"A": [1, 2, 3], "B": [4, 5, 6]})
 dfa.assign(C=lambda x: x["A"] + x["B"], D=lambda x: x["A"] + x["C"])
 print(dfa)
+
+data = {
+    "calories": [420, 380, 390],
+    "duration": [50, 40, 45]
+}
+
+# load data into a DataFrame object:
+df = pd.DataFrame(data)
+
+print(df)
