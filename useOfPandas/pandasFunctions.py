@@ -86,3 +86,9 @@ data = {
 df = pd.DataFrame(data)
 
 print(df)
+
+colors = pd.Series(
+    ["red", "purple", "blue", "green", "yellow"],
+    index=[1, 2, 3, 5, 8]
+)
+print(colors)
