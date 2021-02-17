@@ -70,5 +70,19 @@ class Block:
         sha.update(self.serialize(['hash']).encode('utf-8'))
         return sha.hexdigest()
 
+    def __init__(self):
+        self.__current_transactions = []
+        self.__chain = []
+        # Create genesis block
+        self.create_genesis()
+
+    def create_genesis(self):
+        """
+        Creates the Genesis block and passes it to the chain
+
+        :return: None
+        """
+        genesis_block = Block(0, self.__current_transactions, 0, '00')
+        self.__chain.append(genesis_block)
 
 # https://livecodestream.dev/post/from-zero-to-blockchain-in-python-part-1/
